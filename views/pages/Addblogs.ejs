@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<%- include('../layout/Headsection') %>
+
+  <body>
+
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+    >
+    <%- include('../layout/Header') %>
+      
+     <%- include('../layout/Sidebar') %>
+     
+      <div class="page-wrapper">
+        <div class="page-breadcrumb">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title">Dashboard</h4>
+              <div class="ms-auto text-end">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Library
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-container">
+                <h4 class="form-title">Submit Your Blog</h4>
+                <form class="row g-3" enctype="multipart/form-data" method="post" action="/api/blog">
+                  
+                 
+                  <div class="col-md-12">
+                    <label for="category" class="form-label">Blog Category</label>
+                    <select id="category" name="Blog_Category" class="form-select" required>
+                      <option value="" disabled selected>Select a category</option>
+                      <option value="650 GT">650 GT</option>
+                      <option value="ROYAL">ROYAL</option>
+                      <option value="ALTO">ALTO</option>
+                    </select>
+                  </div>
+      
+                
+                  <div class="col-md-12">
+                    <label for="title" class="form-label">Blog Title</label>
+                    <input type="text" id="title" name="Blog_Title" class="form-control" placeholder="Enter Blog Title" required>
+                  </div>
+      
+                  
+                  <div class="col-md-12">
+                    <label for="contact" class="form-label">Contact Number</label>
+                    <input type="tel" id="contact" name="Contact_number" class="form-control" placeholder="Enter Contact Number" required>
+                  </div>
+      
+                  
+                  <div class="col-md-12">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="Message" rows="4" class="form-control" placeholder="Write your message here" required></textarea>
+                  </div>
+      
+                
+                  <div class="col-md-12">
+                    <label for="file" class="form-label">Upload File</label>
+                    <input type="file" id="file" accept="image/*" name="profile_name" class="form-control">
+                  </div>
+      
+                  
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg w-50">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div> 
+          </div>
+        </div>
+        <footer class="footer text-center">
+          All Rights Reserved by Matrix-admin. Designed and Developed by
+          <a href="https://www.wrappixel.com">WrapPixel</a>.
+        </footer>
+        
+      </div>
+
+    </div>
+   
+   <%- include('../layout/Script') %>
+  </body>
+</html>

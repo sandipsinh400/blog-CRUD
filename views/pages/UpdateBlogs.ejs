@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<%- include('../layout/Headsection') %>
+
+  <body>
+
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+      data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+      <%- include('../layout/Header') %>
+
+        <%- include('../layout/Sidebar') %>
+          <!-- <% console.log(sigleblog) %> -->
+          <div class="page-wrapper">
+            <div class="page-breadcrumb">
+              <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                  <h4 class="page-title">Dashboard</h4>
+                  <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                          Library
+                        </li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container-fluid mt-4">
+              <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                  <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white text-center">
+                      <h4 class="mb-0">Update Blog</h4>
+                    </div>
+                    <form class="form-horizontal p-4" enctype="multipart/form-data" method="post"
+                      action="/api/blog/<%=sigleblog._id%>">
+                      <div class="card-body">
+
+                        <div class="mb-3">
+                          <label for="gender" class="form-label fw-bold">Category</label>
+                          <select id="gender" name="Blog_Category" class="form-select" required>
+                            <option value="" selected disabled>
+                              <%= sigleblog.Blog_Category %>
+                            </option>
+                            <option value="650 GT">650 GT</option>
+                            <option value="ROYAL">ROYAL</option>
+                            <option value="ALTO">ALTO</option>
+                          </select>
+                        </div>
+
+
+                        <div class="mb-3">
+                          <label for="lname" class="form-label fw-bold">Blog Title</label>
+                          <input type="text" class="form-control" id="lname" name="Blog_Title"
+                            value="<%= sigleblog.Blog_Title %>" placeholder="Enter Blog Title" required />
+                        </div>
+
+                        <!-- Contact Number -->
+                        <div class="mb-3">
+                          <label for="contact" class="form-label fw-bold">Contact Number</label>
+                          <input type="text" class="form-control" id="contact" name="Contact_number"
+                            value="<%= sigleblog.Contact_number %>" placeholder="Enter Contact Number" required />
+                        </div>
+
+                        <!-- File Upload -->
+                        <div class="mb-3">
+                          <label for="file" class="form-label fw-bold">File Upload</label>
+                          <input type="file" class="form-control" id="file" name="profile_name" accept="image/*" />
+                          <!-- Hidden field to retain existing file -->
+                          <input type="hidden" value="<%= sigleblog.profile_name %>" name="profile_name" />
+                        </div>
+                      </div>
+
+                      <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-primary btn-lg w-50">
+                          Update
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <footer class="footer text-center">
+              All Rights Reserved by Matrix-admin. Designed and Developed by
+              <a href="https://www.wrappixel.com">WrapPixel</a>.
+            </footer>
+          </div>
+          </div>
+          <%- include('../layout/Script') %>
+  </body>
+
+</html>
