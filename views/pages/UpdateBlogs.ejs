@@ -43,6 +43,13 @@
                     <div class="card-header bg-primary text-white text-center">
                       <h4 class="mb-0">Update Blog</h4>
                     </div>
+
+                    <div class="card-body text-center">
+                      <img src="/profile/<%= sigleblog.profile_name %>" alt="Profile Picture"
+                        class="rounded-circle img-thumbnail mb-4"
+                        style="width: 120px; height: 120px; object-fit: cover;" />
+                    </div>
+
                     <form class="form-horizontal p-4" enctype="multipart/form-data" method="post"
                       action="/api/blog/<%=sigleblog._id%>">
                       <div class="card-body">
@@ -50,7 +57,7 @@
                         <div class="mb-3">
                           <label for="gender" class="form-label fw-bold">Category</label>
                           <select id="gender" name="Blog_Category" class="form-select" required>
-                            <option value="" selected disabled>
+                            <option value="<%= sigleblog.Blog_Category %>" selected disabled>
                               <%= sigleblog.Blog_Category %>
                             </option>
                             <option value="650 GT">650 GT</option>
@@ -66,18 +73,25 @@
                             value="<%= sigleblog.Blog_Title %>" placeholder="Enter Blog Title" required />
                         </div>
 
-                        <!-- Contact Number -->
+               
                         <div class="mb-3">
                           <label for="contact" class="form-label fw-bold">Contact Number</label>
                           <input type="text" class="form-control" id="contact" name="Contact_number"
                             value="<%= sigleblog.Contact_number %>" placeholder="Enter Contact Number" required />
                         </div>
 
-                        <!-- File Upload -->
+                        <div class="mb-3">
+                          <label for="contact" class="form-label fw-bold">message</label>
+                          <input type="text" class="form-control" id="contact" name="message"
+                            value="<%= sigleblog.Message %>" placeholder="Enter Contact Number" required />
+                        </div>
+
+                    
                         <div class="mb-3">
                           <label for="file" class="form-label fw-bold">File Upload</label>
                           <input type="file" class="form-control" id="file" name="profile_name" accept="image/*" />
-                          <!-- Hidden field to retain existing file -->
+                         
+
                           <input type="hidden" value="<%= sigleblog.profile_name %>" name="profile_name" />
                         </div>
                       </div>

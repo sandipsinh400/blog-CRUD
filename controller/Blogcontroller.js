@@ -4,21 +4,23 @@ exports.store = async (req, res) => {
     try {
         console.log(req.body);
         console.log(req.file.filename);
-        const img = req.file.filename
+        const img = req?.file?.filename
 
         const { Blog_Category, Blog_Title, Contact_number, Message } = req.body
 
-        const existcate = await Blog.findOne({ Blog_Category }).countDocuments().exec()
-        if (existcate > 0) {
-            res.json("blog category is all ready existed")
-        }
-        else {
-            await Blog.create({
+        // const existcate = await Blog.findOne({ Blog_Category }).countDocuments().exec()
+        // res.json("blog category is all ready existed")
+        await Blog.create({
 
-                Blog_Category, Blog_Title, Contact_number, Message, profile_name: img
-            })
-            res.redirect('/viewcat')
-        }
+            Blog_Category, Blog_Title, Contact_number, Message, profile_name: img
+        })
+        res.redirect('/viewcat')
+        // if (existcate > 0) {
+            
+        // }
+        // else {
+           
+        // }
     } catch (error) {
         res.json(error)
     }
