@@ -53,14 +53,23 @@ exports.updateprofile=async(req,res)=>{
      console.log(req.body);
      console.log(req.file);
      const {email,Username}=req.body
+
+     var image = ""
+     if (req.file) {
+         image = req.file.filename
+     }else {
+         image = req.body.profile_my
+     }
      const existEmail=await Admin.findOne({email}).countDocuments().exec()
      if(existEmail>0){
          await Admin.updateOne(
              {email},
          {    Username,
-             profile_my:req?.file?.filename
+             profile_my:image
          }
+      
          )
+         res.redirect('/myprofile')
      }else{
          res.render('email id is not existed')
      }
