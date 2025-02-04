@@ -102,7 +102,11 @@
 
   <div class="auth-box" id="contant">
 
-   
+    <% if(message[0]) {%>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong><%= message[0] %></strong> 
+      </div>
+   <% } %>
 
     <form method="post" action="/api/admin/login" class="mt-4">
       <div class="mb-3">
@@ -111,13 +115,14 @@
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="Password" placeholder="Enter your password"
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password"
           required>
       </div>
       <div class="d-grid gap-2">
         <button type="submit" class="btn btn-success">Login</button>
         <a href="/register" class="btn btn-info">Register Account?</a>
       </div>
+      
     </form>
   </div>
 

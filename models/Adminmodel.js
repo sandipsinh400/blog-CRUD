@@ -8,7 +8,7 @@ const common={
 const adminschema= new Schema({
     Username:common,
     email:common,
-    Password:{
+    password:{
         ...common,
         unique:false
     },

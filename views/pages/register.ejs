@@ -94,6 +94,14 @@
     <!-- Logo (Optional) -->
     <!-- <img src="https://via.placeholder.com/100" alt="Logo" class="logo"> -->
     <!-- Sign-Up Form -->
+<!-- 
+    <% console.log(message[0]) %> -->
+    <% if(message[0]) {%>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong><%= message[0] %></strong> 
+      </div>
+   <% } %>
+   
     <form action="/api/admin/register" method="post">
       <div class="mb-4">
         <label for="username" class="form-label">Username</label>
@@ -105,7 +113,7 @@
       </div>
       <div class="mb-4">
         <label for="password" class="form-label">Password</label>
-        <input type="password" id="password" name="Password" class="form-control" placeholder="Enter your password" required>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
       </div>
       <button type="submit" class="btn btn-custom">Sign Up</button>
     </form>
