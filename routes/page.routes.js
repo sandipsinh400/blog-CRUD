@@ -19,7 +19,7 @@ router.get('/viewcat',accesspage, async (req, res) => {
 router.get('/updatecat',accesspage, async (req, res) => {
     const { id } = req.query
     const sigleblog = await Blogmodel.findById(id)
-    res.render('pages/Updateblogs', { sigleblog })
+    res.render('pages/UpdateBlogs', { sigleblog })
    
 })
 router.get('/register', async (req, res) => {
